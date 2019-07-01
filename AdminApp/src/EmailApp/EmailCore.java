@@ -41,9 +41,13 @@ public class EmailCore {
         //After we get the company suffix we will combine all the fName and Lname and companySuffix to form a single email
         email=firstName.toLowerCase()+"."+lastName.toLowerCase()+"@"+department.toLowerCase()+"."+companySuffix.toLowerCase();
         System.out.println("The company email is: "+email);
+
+        //Getting the email capacity
+        this.mailBoxCapacity=SetEmailCapacity();
+        System.out.println("The email capacity is: "+mailBoxCapacity);
     }
 
-
+git 
 
     //2.Asking for the department
     private String setDepartment()
@@ -111,8 +115,16 @@ public class EmailCore {
         return userInput.next()+".com";
     }
 
+
     //4. Setting the mailbox capacity
 
+    //4a.
+    private int SetEmailCapacity()
+    {
+        System.out.print("Enter the Email Capacity: ");
+        Scanner userInput = new Scanner(System.in);
+        return userInput.nextInt();
+    }
 
     //5. Setting the alternative email
 
