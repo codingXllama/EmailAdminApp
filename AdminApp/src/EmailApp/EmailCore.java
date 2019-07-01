@@ -9,7 +9,9 @@ public class EmailCore {
     private String department;
     private int mailBoxCapacity;
     private String alt_Email;
+    private String email;
     private int passwordLength;
+    private String companySuffix;
 
 
 
@@ -19,7 +21,7 @@ public class EmailCore {
     {
         this.firstName=firstName;
         this.lastName=lastName;
-        System.out.println("YAY! YOU HAVE CREATED YOUR EMAIL! "+firstName+" "+lastName);
+        //System.out.println("YAY! YOU HAVE CREATED YOUR EMAIL! "+firstName+" "+lastName);
 
         //After user enters their first and last name, we want them to enter their department
         //to do this we will call the setDepartment()
@@ -32,7 +34,13 @@ public class EmailCore {
         //before that we must get the random Generated password length
         this.passwordLength=GetPasswordLength();
         this.password=GenerateRandomPassword(passwordLength);
-        System.out.println("Your random generated password is: "+password);
+        //System.out.println("Your random generated password is: "+password);
+
+        //Allowing the Admin to enter their company suffix
+        this.companySuffix=GetCompanySuffix();
+        //After we get the company suffix we will combine all the fName and Lname and companySuffix to form a single email
+        email=firstName.toLowerCase()+"."+lastName.toLowerCase()+"@"+department.toLowerCase()+"."+companySuffix.toLowerCase();
+        System.out.println("The company email is: "+email);
     }
 
 
@@ -91,6 +99,16 @@ public class EmailCore {
         //converting a char array variable into a String using the `new String` keyword
         return new String(randomGeneratedPassword);
 
+    }
+
+
+    //3c. Allowing the user to enter their company suffix
+    private String GetCompanySuffix()
+    {
+        System.out.print("Enter the company suffix: ");
+        Scanner userInput=  new Scanner(System.in);
+
+        return userInput.next()+".com";
     }
 
     //4. Setting the mailbox capacity
