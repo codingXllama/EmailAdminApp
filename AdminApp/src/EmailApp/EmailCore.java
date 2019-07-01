@@ -43,11 +43,10 @@ public class EmailCore {
         System.out.println("The company email is: "+email);
 
         //Getting the email capacity
-        this.mailBoxCapacity=SetEmailCapacity();
+//        this.mailBoxCapacity=GetEmailCapacity();
         System.out.println("The email capacity is: "+mailBoxCapacity);
     }
 
-git 
 
     //2.Asking for the department
     private String setDepartment()
@@ -77,8 +76,8 @@ git
         Scanner userInput= new Scanner(System.in);
         //returning the password length from the user
         return userInput.nextInt();
-
     }
+
 
 
 
@@ -116,21 +115,42 @@ git
     }
 
 
-    //4. Setting the mailbox capacity
+//    4a. Creating the method to set the email capacity from the Admin
+//    private int GetEmailCapacity()
+//    {
+//        System.out.print("Enter the Email Capacity: ");
+//        Scanner userInput = new Scanner(System.in);
+//        return userInput.nextInt();
+//    }
 
-    //4a.
-    private int SetEmailCapacity()
+    //4. Setting the mailbox capacity
+    //creating the setter method which returns void and take a param.
+    public void SetEmailCapacity(int mailSize)
     {
-        System.out.print("Enter the Email Capacity: ");
-        Scanner userInput = new Scanner(System.in);
-        return userInput.nextInt();
+        this.mailBoxCapacity=mailSize;
     }
 
-    //5. Setting the alternative email
-
+    //5. Creating the setter for setting the alternative email
+    public void setAltEmail(String altEmail)
+    {
+        this.alt_Email=altEmail;
+    }
 
     //6. Changing the password
+    public void ChangePassword(String passwordToChange)
+    {
+        this.password=passwordToChange;
+    }
 
+    //Creating getter for returning the mailBox capacity
+    public int getMailBoxCapacity()
+    {
+        return mailBoxCapacity;
+    }
 
+    public String getAltEmail()
+    {
+        return alt_Email;
+    }
 
 }
