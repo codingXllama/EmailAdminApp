@@ -50,7 +50,7 @@ public class EmailCore {
     //2.Asking for the department
     private String setDepartment() {
         //creating user prompt
-        System.out.print("DEPARTMENT CODE #\n1 for Sales\n2 for Development\n3 for Accounting\n0 for None\n\nENTER YOUR CODE #: ");
+        System.out.print("DEPARTMENT CODE #\n1 for Sales\n2 for Development\n3 for Accounting\n4 for Law\n0 for None\nENTER YOUR CODE #: ");
         Scanner userInput = new Scanner(System.in);
         int userDepartment_Selection = userInput.nextInt();
 
@@ -64,6 +64,7 @@ public class EmailCore {
                 return "Development";
             case 3:
                 return "Accounting";
+            case 4: return "Law";
             default:
                 System.out.println("Invalid input, please try again!");
         }
